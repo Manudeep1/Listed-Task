@@ -12,6 +12,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.listed_task.R
 import com.example.listed_task.TopLinksFragment
 import com.example.listed_task.dashboard_data.TopLink
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TopLinksAdapter (private val context: TopLinksFragment, private val topLinksList : List<TopLink>):
     RecyclerView.Adapter<TopLinksAdapter.TopLinksViewHolder>() {
@@ -33,8 +35,14 @@ class TopLinksAdapter (private val context: TopLinksFragment, private val topLin
     }
 
     override fun onBindViewHolder(holder: TopLinksViewHolder, position: Int) {
+        val timestamp = "2023-02-23T11:45:54.000Z"
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+        val date = inputFormat.parse(timestamp)
+
+        val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val formattedDate = outputFormat.format(date)
         holder.apply {
-            tv_date.text = topLinksList[position].created_at
+            tv_date.text =formattedDate
             tv_linkName.text = topLinksList[position].title
             tv_links.text = topLinksList[position].smart_link
             tv_clicks.text = topLinksList[position].total_clicks.toString()
