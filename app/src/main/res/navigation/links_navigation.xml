@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/links_navigation"
+    app:startDestination="@id/topLinksFragment">
+
+    <fragment
+        android:id="@+id/recentLinksFragment"
+        android:name="com.example.listed_task.RecentLinksFragment"
+        android:label="fragment_recent_links"
+        tools:layout="@layout/fragment_recent_links" />
+    <fragment
+        android:id="@+id/topLinksFragment"
+        android:name="com.example.listed_task.TopLinksFragment"
+        android:label="fragment_top_links"
+        tools:layout="@layout/fragment_top_links" />
+</navigation>
